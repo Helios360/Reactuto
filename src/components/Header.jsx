@@ -8,7 +8,6 @@ const Header = () => {
         <div className="logo">
           <img src={logo} alt="logo" height="80px" width="80px" className="img-fluid" />
         </div>
-        <h1 className="mb-0">ReacTuto</h1>
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav">
