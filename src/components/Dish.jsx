@@ -2,10 +2,10 @@
 
 const Dish = ({ img, title, price }) => {
   return (
-    <div class="text-center">
+    <div class="hello">
       <img src={img} alt={title} height="200" width="200" />
-      <h2>{title}</h2>
-      <h3>{price}</h3>
+      <h3>{title}</h3>
+      <h4>{price}€</h4>
     </div>
   );
 };
