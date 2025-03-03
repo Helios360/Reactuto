@@ -6,7 +6,7 @@ import mexicanImage from './assets/mexican.jpg';
 import moleImage from './assets/mole.jpg';
 import TACOS from './assets/tacos.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
-import Card from 'react-bootstrap/Card';
+
 
 function App() {
   return (
