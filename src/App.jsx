@@ -14,33 +14,21 @@ function App() {
       <Header />
       <main className="container p-5">
         <div className="row">
-          <div className="col-md-4">
-            <Card>
-              <Dish
-                img={mexicanImage}
-                title="Mexican Dish"
-                price={10}
-              />
-            </Card>
-          </div>
-          <div className="col-md-4">
-            <Card>
-              <Dish
-                img={moleImage}
-                title="Mole"
-                price={10}
-              />
-            </Card>
-          </div>
-          <div className="col-md-4">
-            <Card>
-              <Dish
-                img={TACOS}
-                title="TACOS"
-                price={10}
-              />
-            </Card>
-          </div>
+          <Dish
+            img={mexicanImage}
+            title="Mexican Dish"
+            price={10}
+          />
+          <Dish
+            img={moleImage}
+            title="Mole"
+            price={10}
+          />
+          <Dish
+            img={TACOS}
+            title="TACOS"
+            price={10}
+          />
         </div>
       </main>
       <Footer />
