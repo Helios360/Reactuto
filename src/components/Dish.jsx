@@ -1,15 +1,25 @@
-// components/Dish.jsx
-import Card from 'react-bootstrap/Card';
-const Dish = ({ img, title, price }) => {
+import React from 'react';
+import { Card, Col } from 'react-bootstrap';
+
+const ProductCard = ({ img, title, price }) => {
   return (
-    <Card class="col-md-4">
-        <div class="hello border">
-        <img src={img} alt={title} height="200" width="200" />
-        <h3>{title}</h3>
-        <h4>{price}€</h4>
+    <Col xs={12} sm={6} md={4} className="mb-4">
+      <Card className="h-100 rounded-3 overflow-hidden">
+        <div className="text-center border-bottom">
+          <Card.Img 
+            variant="top" 
+            src={img} 
+            alt={title} 
+            style={{ height: '200px', width: '100%', objectFit: 'cover' }} 
+          />
         </div>
-    </Card>
+        <Card.Body className="text-start">
+          <Card.Title as="h3">{title}</Card.Title>
+          <Card.Text as="h4">{price}€</Card.Text>
+        </Card.Body>
+      </Card>
+    </Col>
   );
 };
 
-export default Dish;
+export default ProductCard;

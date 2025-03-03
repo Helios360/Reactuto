@@ -6,30 +6,32 @@ import mexicanImage from './assets/mexican.jpg';
 import moleImage from './assets/mole.jpg';
 import TACOS from './assets/tacos.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
-
-
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 function App() {
   return (
     <div className="App">
       <Header />
-      <main className="container p-5">
-        <div className="row">
-          <Dish
-            img={mexicanImage}
-            title="Mexican Dish"
-            price={10}
-          />
-          <Dish
-            img={moleImage}
-            title="Mole"
-            price={10}
-          />
-          <Dish
-            img={TACOS}
-            title="TACOS"
-            price={10}
-          />
-        </div>
+      <main>
+        <Container>
+          <Row>
+            <Dish
+              img={mexicanImage}
+              title="Mexican Dish"
+              price={10}
+            />
+            <Dish
+              img={moleImage}
+              title="Mole"
+              price={10}
+            />
+            <Dish
+              img={TACOS}
+              title="TACOS"
+              price={10}
+            />
+          </Row>
+        </Container>
       </main>
       <Footer />
     </div>
