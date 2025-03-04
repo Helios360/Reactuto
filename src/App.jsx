@@ -40,19 +40,25 @@ const dishes = [
 
 function App() {
   const [filteredDishes, setFilteredDishes] = useState(dishes);
-  
-  const some = () => {
-    setFilteredDishes(dishes.filter((dish) => dish.stock > 0)); // Updates state with filtered dishes
+  const [isNewOnly, setIsNewOnly] = useState(false); 
+  const showAvailableOnly = () => {
+    setFilteredDishes(dishes.filter((dish) => dish.stock > 0));
   };
-  const newOnly = () => {
-    setFilteredDishes(dishes.filter((dish) => dish.isNew == true));
-  }
+  const toggleNewOnly = () => {
+    setIsNewOnly(!isNewOnly);
+    if (!isNewOnly) {
+      setFilteredDishes(dishes.filter((dish) => dish.isNew === true));
+    } else {
+      setFilteredDishes(dishes);
+    }
+  };
+
   return (
     <div className="App">
       <Header />
       <main className="p-5">
-      <Button onClick={some} variant="outline-primary m-5">Available Only</Button>
-      <Button onClick={newOnly} variant="outline-primary m-5">New Only</Button>
+      <Button onClick={showAvailableOnly} variant="outline-primary m-5">Available Only</Button>
+      <Button onClick={toggleNewOnly} variant="outline-primary m-5">{isNewOnly ? "Show All" : "New Only"}</Button>
         <Container>
           <Row>
             {filteredDishes.map(dish=>(
