@@ -2,7 +2,7 @@
 
 import logo from '../assets/man.png';
 import { Container, Navbar, Nav } from 'react-bootstrap';
-
+import "../assets/styles/Header.scss";
 const Header = () => {
   return (
     <header className="bg-light">

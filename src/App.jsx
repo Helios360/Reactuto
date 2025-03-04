@@ -15,26 +15,26 @@ const dishes = [
   {
     id: 1,
     img: mexicanImage,
-    title: "Mexican Dish",
-    price: 10,
+    title: "Enchiladas",
+    price: 12,
     isNew: true,
-    stock: 20,
+    stock: 0,
   },
   {
     id: 2,
     img: moleImage,
     title: "Mole",
-    price: 10,
+    price: 15,
     isNew: false,
-    stock: 20,
+    stock: 5,
   },
   {
     id: 3,
     img: TACOS,
     title: "TACOS",
-    price: 10,
+    price: 3,
     isNew: false,
-    stock: 0,
+    stock: 12,
   },
 ];
 

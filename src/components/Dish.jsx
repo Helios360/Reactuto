@@ -1,5 +1,5 @@
-import { Card, Col, Badge } from 'react-bootstrap';
-
+import { Card, Col, Badge, Button } from 'react-bootstrap';
+import "../assets/styles/Dish.scss"
 const ProductCard = ({ img, title, price, isNew=false }) => {
   return (
     <Col xs={12} sm={6} md={4} className="mb-4">
@@ -9,6 +9,7 @@ const ProductCard = ({ img, title, price, isNew=false }) => {
         <Card.Body className="text-start">
           <Card.Title as="h3">{title}</Card.Title>
           <Card.Text as="h4">{price}€</Card.Text>
+          <Button variant="secondary">Add to cart</Button>
         </Card.Body>
       </Card>
     </Col>
