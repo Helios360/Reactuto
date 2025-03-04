@@ -40,21 +40,19 @@ const dishes = [
 
 function App() {
   const [filteredDishes, setFilteredDishes] = useState(dishes);
-  const [showAvailable, setShowAvailable] = useState(false);
-
-  const handleClick = () => {
-    if (showAvailable) {
-      setFilteredDishes(dishes); // Show all dishes
-    } else {
-      setFilteredDishes(dishes.filter((dish) => dish.stock > 0)); // Show only available dishes
-    }
-    setShowAvailable(!showAvailable);
+  
+  const some = () => {
+    setFilteredDishes(dishes.filter((dish) => dish.stock > 0)); // Updates state with filtered dishes
   };
+  const newOnly = () => {
+    setFilteredDishes(dishes.filter((dish) => dish.isNew == true));
+  }
   return (
     <div className="App">
       <Header />
       <main className="p-5">
-      <Button onClick={handleClick} variant="outline-primary m-5">{showAvailable ? "Show All" : "Available Only"}</Button>
+      <Button onClick={some} variant="outline-primary m-5">Available Only</Button>
+      <Button onClick={newOnly} variant="outline-primary m-5">New Only</Button>
         <Container>
           <Row>
             {filteredDishes.map(dish=>(

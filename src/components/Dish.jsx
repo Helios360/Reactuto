@@ -1,6 +1,9 @@
 import { Card, Col, Badge, Button } from 'react-bootstrap';
 import "../assets/styles/Dish.scss"
 const ProductCard = ({ img, title, price, isNew=false }) => {
+  const hmm = (title) => {
+    alert(`Yipiiiiii! You added ${title} to the cart.`);
+  }
   return (
     <Col xs={12} sm={6} md={4} className="mb-4">
       <Card>
@@ -9,7 +12,7 @@ const ProductCard = ({ img, title, price, isNew=false }) => {
         <Card.Body className="text-start">
           <Card.Title as="h3">{title}</Card.Title>
           <Card.Text as="h4">{price}€</Card.Text>
-          <Button variant="secondary">Add to cart</Button>
+          <Button variant="secondary" onClick={() => hmm(title)}>Add to cart</Button>
         </Card.Body>
       </Card>
     </Col>

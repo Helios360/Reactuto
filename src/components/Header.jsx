@@ -14,7 +14,7 @@ const Header = () => {
               alt="logo"
               height="80"
               width="80"
-              className="img-fluid"
+              className="img-fluid logo"
             />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarNav" />
