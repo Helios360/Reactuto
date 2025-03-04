@@ -35,7 +35,7 @@ const dishes = [
 
 function App() {
   return (
-    <div className="App">
+    <div App>
       <Header />
       <main>
         <Home dishes={dishes}/>
