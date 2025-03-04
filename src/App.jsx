@@ -2,13 +2,15 @@
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Dish from './components/Dish';
-import Home from './components/Home';
 import mexicanImage from './assets/mexican.jpg';
 import moleImage from './assets/mole.jpg';
 import TACOS from './assets/tacos.jpg';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Button from 'react-bootstrap/Button';
+import { useState } from 'react';
+
 const dishes = [
   {
     id: 1,
@@ -16,6 +18,7 @@ const dishes = [
     title: "Mexican Dish",
     price: 10,
     isNew: true,
+    stock: 20,
   },
   {
     id: 2,
@@ -23,6 +26,7 @@ const dishes = [
     title: "Mole",
     price: 10,
     isNew: false,
+    stock: 20,
   },
   {
     id: 3,
@@ -30,18 +34,30 @@ const dishes = [
     title: "TACOS",
     price: 10,
     isNew: false,
+    stock: 0,
   },
 ];
 
 function App() {
+  const [filteredDishes, setFilteredDishes] = useState(dishes);
+  const [showAvailable, setShowAvailable] = useState(false);
+
+  const handleClick = () => {
+    if (showAvailable) {
+      setFilteredDishes(dishes); // Show all dishes
+    } else {
+      setFilteredDishes(dishes.filter((dish) => dish.stock > 0)); // Show only available dishes
+    }
+    setShowAvailable(!showAvailable);
+  };
   return (
-    <div App>
+    <div className="App">
       <Header />
-      <main>
-        <Home dishes={dishes}/>
+      <main className="p-5">
+      <Button onClick={handleClick} variant="outline-primary m-5">{showAvailable ? "Show All" : "Available Only"}</Button>
         <Container>
           <Row>
-            {dishes.map(dish=>(
+            {filteredDishes.map(dish=>(
               <Dish
               key={dish.id}
               img={dish.img}
