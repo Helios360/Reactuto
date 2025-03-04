@@ -20,7 +20,7 @@ const BasicExample = ({dishes}) => {
                 <img 
                   src={dish.img} 
                   alt={dish.title} 
-                  style={{ width: "200px", height: "200px", objectFit: "cover", borderRadius: "5px" }} 
+                  className="h-200" 
                 />
               </td>
               <td>{dish.title}</td>
