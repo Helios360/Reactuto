@@ -19,6 +19,7 @@ function App() {
               img={mexicanImage}
               title="Mexican Dish"
               price={10}
+              isNew="true"
             />
             <Dish
               img={moleImage}
