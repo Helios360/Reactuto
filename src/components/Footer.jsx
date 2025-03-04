@@ -1,7 +1,7 @@
 // components/Footer.jsx
 const Footer = () => {
   return (
-    <footer class="footer">
+    <footer>
         <p>Copyright Mexican Food 2024</p>
     </footer>
   );

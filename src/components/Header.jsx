@@ -6,8 +6,8 @@ import { Container, Navbar, Nav } from 'react-bootstrap';
 const Header = () => {
   return (
     <header className="bg-light">
-      <Navbar expand="lg" className="navbar-light">
-        <Container className="d-flex justify-content-between align-items-center">
+      <Navbar expand="lg">
+        <Container>
           <Navbar.Brand href="/">
             <img
               src={logo}
