@@ -3,8 +3,10 @@
 import logo from '../assets/man.png';
 import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
 import "../assets/styles/Header.scss";
+import { useCart } from "../context/CartContext";
 
-const Header = ({cartCount}) => {
+const Header = () => {
+  const { cartCount } = useCart();
   return (
     <header className="bg-light">
       <Navbar expand="lg">
