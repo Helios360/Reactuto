@@ -33,13 +33,13 @@ const dishes = [
     img: TACOS,
     title: "TACOS",
     price: 3,
-    isNew: false,
+    isNew: true,
     stock: 12,
   },
-];
+].filter((dish) => dish.stock > 0);
 
 function App() {
-  const [filteredDishes, setFilteredDishes] = useState(dishes.filter((dish) => dish.stock > 0));
+  const [filteredDishes, setFilteredDishes] = useState(dishes);
   const [isNewOnly, setIsNewOnly] = useState(false); 
   const [Cart, setCart] = useState([]);
   const [cartCount, setCartCount] = useState(0);
@@ -48,7 +48,7 @@ function App() {
     if (!isNewOnly) {
       setFilteredDishes(dishes.filter((dish) => dish.isNew === true));
     } else {
-      setFilteredDishes(dishes.filter((dish) => dish.stock > 0));
+      setFilteredDishes(dishes);
     }
   };
   const hmm = (title) => {
