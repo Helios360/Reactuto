@@ -41,7 +41,8 @@ const dishes = [
 function App() {
   const [filteredDishes, setFilteredDishes] = useState(dishes.filter((dish) => dish.stock > 0));
   const [isNewOnly, setIsNewOnly] = useState(false); 
-  
+  const [Cart, setCart] = useState([]);
+  const [cartCount, setCartCount] = useState(0);
   const toggleNewOnly = () => {
     setIsNewOnly(!isNewOnly);
     if (!isNewOnly) {
@@ -50,10 +51,14 @@ function App() {
       setFilteredDishes(dishes.filter((dish) => dish.stock > 0));
     }
   };
-
+  const hmm = (title) => {
+    setCart((currentCart)=>[...currentCart,title]);
+    setCartCount((prevCount) => prevCount + 1);
+    console.log(cartCount);
+  }
   return (
     <div className="App">
-      <Header />
+      <Header cartCount={cartCount} />
       <main className="p-5">
       <Button onClick={toggleNewOnly} variant="outline-primary m-5">{isNewOnly ? "Show All" : "New Only"}</Button>
         <Container>
@@ -65,6 +70,7 @@ function App() {
               title={dish.title}
               price={dish.price}
               isNew={dish.isNew}
+              hmm={hmm}
             />
             ))}
           </Row>

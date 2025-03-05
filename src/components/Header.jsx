@@ -1,9 +1,10 @@
 // components/Header.jsx
 
 import logo from '../assets/man.png';
-import { Container, Navbar, Nav } from 'react-bootstrap';
+import { Container, Navbar, Nav, Badge } from 'react-bootstrap';
 import "../assets/styles/Header.scss";
-const Header = () => {
+
+const Header = ({cartCount}) => {
   return (
     <header className="bg-light">
       <Navbar expand="lg">
@@ -21,10 +22,14 @@ const Header = () => {
           <Navbar.Collapse id="navbarNav">
             <Nav className="ms-auto">
               <Nav.Link href="/">Accueil</Nav.Link>
+              <Nav.Link href="/cart">
+              || Panier ({cartCount})
+              </Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
+
     </header>
   );
 };
