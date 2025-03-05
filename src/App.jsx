@@ -36,23 +36,17 @@ const dishes = [
     isNew: true,
     stock: 12,
   },
-].filter((dish) => dish.stock > 0);
+];
 
 function App() {
-  const [filteredDishes, setFilteredDishes] = useState(dishes);
-  const [isNewOnly, setIsNewOnly] = useState(false); 
-  const [Cart, setCart] = useState([]);
+  
+  const [isNewOnly, setIsNewOnly] = useState(false);
   const [cartCount, setCartCount] = useState(0);
+  const availableDishes = dishes.filter(dish => dish.stock > 0 && (!isNewOnly || dish.isNew));
   const toggleNewOnly = () => {
     setIsNewOnly(!isNewOnly);
-    if (!isNewOnly) {
-      setFilteredDishes(dishes.filter((dish) => dish.isNew === true));
-    } else {
-      setFilteredDishes(dishes);
-    }
   };
   const hmm = (title) => {
-    setCart((currentCart)=>[...currentCart,title]);
     setCartCount((prevCount) => prevCount + 1);
     console.log(cartCount);
   }
@@ -63,7 +57,7 @@ function App() {
       <Button onClick={toggleNewOnly} variant="outline-primary m-5">{isNewOnly ? "Show All" : "New Only"}</Button>
         <Container>
           <Row>
-            {filteredDishes.map(dish=>(
+            {availableDishes.map(dish=>(
               <Dish
               key={dish.id}
               img={dish.img}
