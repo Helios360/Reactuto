@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import React from "react";
 import { Card, Col, Badge, Button } from "react-bootstrap";
+import useCart from "../hooks/useCart";
 import "../assets/styles/Dish.scss";
 
 const Dish = ({ img, title, price, isNew }) => {
-  const { dispatch } = useContext(CartContext); // Utilisation directe de useContext
+  const { addToCart, removeFromCart } = useCart();
   
   return (
     <Col xs={12} sm={6} md={4} className="mb-4">
@@ -14,8 +14,8 @@ const Dish = ({ img, title, price, isNew }) => {
         <Card.Body className="text-start">
           <Card.Title as="h3">{title}</Card.Title>
           <Card.Text as="h4">{price}€</Card.Text>
-          <Button variant="secondary" onClick={() => dispatch({type:"increment"})}>Ajouter au panier</Button>
-          <Button onClick={() => dispatch({type:"decrement"})} variant="primary m-2">Retirer du panier</Button>
+          <Button variant="secondary" onClick={addToCart}>Ajouter au panier</Button>
+          <Button onClick={removeFromCart} variant="primary m-2">Retirer du panier</Button>
         </Card.Body>
       </Card>
     </Col>

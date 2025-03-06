@@ -1,12 +1,13 @@
-import { useContext } from "react";
-import { CartContext } from "../context/CartContext";
+import React from "react";
+import useCart from "../hooks/useCart";
 import logo from "../assets/man.png";
 import { Container, Navbar, Nav, Badge } from "react-bootstrap";
 import "../assets/styles/Header.scss";
 
 const Header = () => {
-  const { cartCount } = useContext(CartContext); // Utilisation directe de useContext
+  const { cartCount } = useCart();
   console.log(cartCount);
+  
   return (
     <header className="bg-light">
       <Navbar expand="lg">
