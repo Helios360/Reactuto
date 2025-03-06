@@ -4,8 +4,8 @@ import { Card, Col, Badge, Button } from "react-bootstrap";
 import "../assets/styles/Dish.scss";
 
 const Dish = ({ img, title, price, isNew }) => {
-  const { addToCart } = useContext(CartContext); // Utilisation directe de useContext
-
+  const { dispatch } = useContext(CartContext); // Utilisation directe de useContext
+  
   return (
     <Col xs={12} sm={6} md={4} className="mb-4">
       <Card>
@@ -14,7 +14,7 @@ const Dish = ({ img, title, price, isNew }) => {
         <Card.Body className="text-start">
           <Card.Title as="h3">{title}</Card.Title>
           <Card.Text as="h4">{price}€</Card.Text>
-          <Button variant="secondary" onClick={addToCart}>Ajouter au panier</Button>
+          <Button variant="secondary" onClick={() => dispatch({type:"increment"})}>Ajouter au panier</Button>
         </Card.Body>
       </Card>
     </Col>

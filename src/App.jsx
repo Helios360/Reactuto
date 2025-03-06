@@ -8,7 +8,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { CartContext } from './context/CartContext';
+
 
 const dishes = [
   { 
@@ -39,10 +41,10 @@ const dishes = [
 function App() {
   const [isNewOnly, setIsNewOnly] = useState(false);
   const availableDishes = dishes.filter(dish => dish.stock > 0 && (!isNewOnly || dish.isNew));
-  
   const toggleNewOnly = () => {
     setIsNewOnly(!isNewOnly);
   };
+  const { dispatch } = useContext(CartContext); // Utilisation directe de useContext
 
   return (
     <div className="App">
@@ -58,6 +60,9 @@ function App() {
             ))}
           </Row>
         </Container>
+        <Button onClick={() => dispatch({type:"decrement"})} variant="outline-primary m-5">
+          hmmmmmmmmm food
+        </Button>
       </main>
       <Footer />
     </div>

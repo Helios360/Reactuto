@@ -6,7 +6,7 @@ import "../assets/styles/Header.scss";
 
 const Header = () => {
   const { cartCount } = useContext(CartContext); // Utilisation directe de useContext
-
+  console.log(cartCount);
   return (
     <header className="bg-light">
       <Navbar expand="lg">
