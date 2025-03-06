@@ -60,9 +60,6 @@ function App() {
             ))}
           </Row>
         </Container>
-        <Button onClick={() => dispatch({type:"decrement"})} variant="outline-primary m-5">
-          hmmmmmmmmm food
-        </Button>
       </main>
       <Footer />
     </div>
