@@ -39,10 +39,10 @@ const dishes = [
 function App() {
   const [filteredDishes, setFilteredDishes] = useState(dishes.filter((dish) => dish.stock > 0));
   const [isNewOnly, setIsNewOnly] = useState(false);
-
+  const truc =  isNewOnly ? dishes.filter(dish => dish.stock > 0) : dishes.filter(dish => dish.isNew);
   const toggleNewOnly = () => {
     setIsNewOnly(!isNewOnly);
-    setFilteredDishes(isNewOnly ? dishes.filter(dish => dish.stock > 0) : dishes.filter(dish => dish.isNew));
+    setFilteredDishes(truc);
   };
 
   return (
