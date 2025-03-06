@@ -16,7 +16,7 @@ const dishes = [
     img: mexicanImage, 
     title: "Enchiladas", price: 12, 
     isNew: true, 
-    stock: 0 
+    stock: 1 
   },
   { 
     id: 2, 
@@ -37,12 +37,11 @@ const dishes = [
 ];
 
 function App() {
-  const [filteredDishes, setFilteredDishes] = useState(dishes.filter((dish) => dish.stock > 0));
   const [isNewOnly, setIsNewOnly] = useState(false);
-  const truc =  isNewOnly ? dishes.filter(dish => dish.stock > 0) : dishes.filter(dish => dish.isNew);
+  const availableDishes = dishes.filter(dish => dish.stock > 0 && (!isNewOnly || dish.isNew));
+  
   const toggleNewOnly = () => {
     setIsNewOnly(!isNewOnly);
-    setFilteredDishes(truc);
   };
 
   return (
@@ -54,7 +53,7 @@ function App() {
         </Button>
         <Container>
           <Row>
-            {filteredDishes.map(dish => (
+            {availableDishes.map(dish => (
               <Dish key={dish.id} img={dish.img} title={dish.title} price={dish.price} isNew={dish.isNew} />
             ))}
           </Row>
