@@ -8,43 +8,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Button from 'react-bootstrap/Button';
-import { useState, useContext } from 'react';
+import { useState, useContext, useRef, useEffect } from 'react';
 import { CartContext } from './context/CartContext';
 
-
 const dishes = [
-  { 
-    id: 1, 
-    img: mexicanImage, 
-    title: "Enchiladas", price: 12, 
-    isNew: true, 
-    stock: 1 
-  },
-  { 
-    id: 2, 
-    img: moleImage, 
-    title: "Mole", 
-    price: 15, 
-    isNew: false, 
-    stock: 5 
-  },
-  { 
-    id: 3, 
-    img: TACOS, 
-    title: "TACOS", 
-    price: 3, 
-    isNew: false, 
-    stock: 12 
-  },
+  { id: 1, img: mexicanImage, title: "Enchiladas", price: 12, isNew: true, stock: 1 },
+  { id: 2, img: moleImage, title: "Mole", price: 15, isNew: false, stock: 5 },
+  { id: 3, img: TACOS, title: "TACOS", price: 3, isNew: false, stock: 12 },
 ];
 
 function App() {
   const [isNewOnly, setIsNewOnly] = useState(false);
+  const { cartCount } = useContext(CartContext);
+  const prevCartCountRef = useRef(cartCount);
+
+  useEffect(() => {
+    prevCartCountRef.current = cartCount;
+  }, [cartCount]);
+
   const availableDishes = dishes.filter(dish => dish.stock > 0 && (!isNewOnly || dish.isNew));
   const toggleNewOnly = () => {
     setIsNewOnly(!isNewOnly);
   };
-  const { dispatch } = useContext(CartContext); // Utilisation directe de useContext
 
   return (
     <div className="App">
@@ -53,6 +38,7 @@ function App() {
         <Button onClick={toggleNewOnly} variant="outline-primary m-5">
           {isNewOnly ? "Show All" : "New Only"}
         </Button>
+        <p>Le panier est passé de {prevCartCountRef.current} à {cartCount} articles.</p>
         <Container>
           <Row>
             {availableDishes.map(dish => (

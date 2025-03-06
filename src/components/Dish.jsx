@@ -15,9 +15,7 @@ const Dish = ({ img, title, price, isNew }) => {
           <Card.Title as="h3">{title}</Card.Title>
           <Card.Text as="h4">{price}€</Card.Text>
           <Button variant="secondary" onClick={() => dispatch({type:"increment"})}>Ajouter au panier</Button>
-          <Button onClick={() => dispatch({type:"decrement"})} variant="outline-primary m-5">
-          hmmmmmmmmm food
-        </Button>
+          <Button onClick={() => dispatch({type:"decrement"})} variant="primary m-2">Retirer du panier</Button>
         </Card.Body>
       </Card>
     </Col>
